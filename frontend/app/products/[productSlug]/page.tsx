@@ -9,6 +9,8 @@ interface PageProps {
   params: Promise<{ productSlug: string }>;
 }
 
+export const instant = false;
+
 export default async function ProductDetailPage({ params }: PageProps) {
   const { productSlug } = await params;
 

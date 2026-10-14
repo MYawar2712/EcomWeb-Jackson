@@ -24,6 +24,8 @@ interface PageProps {
   }>;
 }
 
+export const instant = false;
+
 export default async function ProductTypePage({ params, searchParams }: PageProps) {
   const { categorySlug, productTypeSlug } = await params;
   const query = await searchParams;

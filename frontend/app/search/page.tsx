@@ -20,6 +20,8 @@ interface PageProps {
   }>;
 }
 
+export const instant = false;
+
 export default async function SearchPage({ searchParams }: PageProps) {
   const query = await searchParams;
   const searchTerm = query.q || query.search || '';
