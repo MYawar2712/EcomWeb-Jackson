@@ -30,10 +30,10 @@ describe('Storefront Navigation and Interactive Flow Tests', () => {
       );
 
       expect(screen.getByText('JACKSON')).toBeInTheDocument();
-      expect(screen.getByText('Catalog')).toBeInTheDocument();
       expect(screen.getByText('Hair Care')).toBeInTheDocument();
       expect(screen.getByText('Barber Tools')).toBeInTheDocument();
       expect(screen.getByText('Salon Equipment')).toBeInTheDocument();
+      expect(screen.getByText('Shaving & Beard')).toBeInTheDocument();
       expect(
         screen.getByPlaceholderText('Search products, brands, or categories...'),
       ).toBeInTheDocument();
@@ -65,7 +65,7 @@ describe('Storefront Navigation and Interactive Flow Tests', () => {
       const toggleBtn = screen.getByLabelText('Toggle navigation menu');
       fireEvent.click(toggleBtn);
 
-      expect(screen.getByText('All Categories & Catalog')).toBeInTheDocument();
+      expect(screen.getByText('Categories & Products')).toBeInTheDocument();
       expect(screen.getByText('Electrical Salon Equipment')).toBeInTheDocument();
     });
   });

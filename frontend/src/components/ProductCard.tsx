@@ -4,9 +4,10 @@ import { formatPriceRange } from '@/lib/format';
 
 export interface ProductCardProps {
   product: ProductListItem;
+  tag?: string;
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, tag }: ProductCardProps) {
   const isInStock = product.total_stock > 0;
   const priceDisplay = formatPriceRange(product.min_price, product.max_price);
 
@@ -25,6 +26,15 @@ export function ProductCard({ product }: ProductCardProps) {
             {product.brand}
           </span>
         </div>
+
+        {/* Deal / Tag badge */}
+        {tag && (
+          <div className="absolute top-3 left-3 z-10">
+            <span className="inline-flex items-center gap-1 rounded-full bg-amber-500 text-neutral-950 font-black px-2.5 py-0.5 text-[10px] uppercase tracking-wider shadow-sm">
+              ★ {tag}
+            </span>
+          </div>
+        )}
 
         {/* Stock status pill */}
         <div className="absolute top-3 right-3">
