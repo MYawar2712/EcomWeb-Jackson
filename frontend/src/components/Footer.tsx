@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export function Footer() {
   return (
@@ -7,9 +8,25 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand info */}
           <div className="space-y-4 md:col-span-2">
-            <span className="text-2xl font-black tracking-tight text-white">
-              JACKSON
-            </span>
+            <Link href="/" className="inline-flex items-center gap-3 group">
+              <div className="relative h-12 w-16 overflow-hidden shrink-0">
+                <Image
+                  src="/jackson-logo.png"
+                  alt="Jackson Beauty Club Logo"
+                  fill
+                  sizes="64px"
+                  className="object-contain"
+                />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xl font-black tracking-tight text-white group-hover:text-amber-400 transition-colors">
+                  JACKSON
+                </span>
+                <span className="text-[10px] tracking-widest uppercase font-bold text-amber-500/90 -mt-0.5">
+                  Beauty Club
+                </span>
+              </div>
+            </Link>
             <p className="text-sm text-neutral-400 max-w-md leading-relaxed">
               Curated single-vendor storefront for professional cosmetics, premium hair-care,
               barber supplies, and heavy-duty salon equipment. Powered by real catalog inventory.

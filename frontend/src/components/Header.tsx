@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -25,16 +26,28 @@ export function Header() {
         <span>Professional Beauty, Barber Supplies &amp; Salon Equipment</span>
       </div>
 
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 h-18">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 h-20">
         {/* Brand Logo */}
         <div className="flex items-center gap-6">
-          <Link href="/" className="group flex flex-col">
-            <span className="text-2xl font-black tracking-tight text-neutral-950 group-hover:text-neutral-700 transition-colors">
-              JACKSON
-            </span>
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-neutral-500 -mt-1">
-              Storefront
-            </span>
+          <Link href="/" className="group flex items-center gap-3">
+            <div className="relative h-14 w-20 overflow-hidden shrink-0">
+              <Image
+                src="/jackson-logo.png"
+                alt="Jackson Beauty Club Logo"
+                fill
+                sizes="80px"
+                className="object-contain transition-transform group-hover:scale-105"
+                priority
+              />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-xl font-black tracking-tight text-neutral-950 group-hover:text-amber-800 transition-colors leading-tight">
+                JACKSON
+              </span>
+              <span className="text-[10px] tracking-widest uppercase font-bold text-neutral-500 -mt-0.5">
+                Beauty Club
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}

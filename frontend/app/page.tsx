@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { getCategories, listProducts } from '@/lib/api';
 import { CategoryCard } from '@/components/CategoryCard';
 import { ProductCard } from '@/components/ProductCard';
@@ -30,34 +31,51 @@ export default async function HomePage() {
   return (
     <div className="space-y-16 pb-20">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-neutral-900 text-white py-20 px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]" />
+      <section className="relative overflow-hidden bg-neutral-900 text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b border-neutral-800">
+        <div className="absolute inset-0 opacity-15 bg-[radial-gradient(#d4af37_1px,transparent_1px)] [background-size:20px_20px]" />
         <div className="relative mx-auto max-w-7xl">
-          <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1 text-xs font-semibold text-neutral-200 backdrop-blur-sm border border-white/10 mb-4">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-              Single-Vendor Professional Catalog
-            </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-              Premium Beauty &amp; Salon Supplies
-            </h1>
-            <p className="mt-4 text-base sm:text-lg text-neutral-300 leading-relaxed">
-              Curated for professional hair stylists, barbers, and salon owners. Real-time inventory,
-              genuine brands, and multi-variant product selections.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#categories-section"
-                className="rounded-xl bg-white px-5 py-3 text-sm font-bold text-neutral-900 hover:bg-neutral-100 transition-colors shadow-sm"
-              >
-                Browse Categories
-              </a>
-              <Link
-                href="/categories/hair-care-products"
-                className="rounded-xl bg-neutral-800 border border-neutral-700 px-5 py-3 text-sm font-semibold text-white hover:bg-neutral-700 transition-colors"
-              >
-                Hair Care Collection
-              </Link>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+            <div className="max-w-2xl text-center lg:text-left">
+              <span className="inline-flex items-center gap-2 rounded-full bg-amber-500/10 px-3.5 py-1 text-xs font-semibold text-amber-300 backdrop-blur-sm border border-amber-500/20 mb-4">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400"></span>
+                Jackson Beauty Club &bull; Professional Storefront
+              </span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                Premium Beauty, Barber &amp; Salon Supplies
+              </h1>
+              <p className="mt-4 text-base sm:text-lg text-neutral-300 leading-relaxed">
+                Curated for professional hair stylists, master barbers, and salon owners. Real-time inventory,
+                genuine verified brands, and multi-variant product selections.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3">
+                <a
+                  href="#categories-section"
+                  className="rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold px-6 py-3.5 text-sm transition-all shadow-lg shadow-amber-500/20"
+                >
+                  Browse Categories
+                </a>
+                <Link
+                  href="/categories/hair-care-products"
+                  className="rounded-xl bg-neutral-800 border border-neutral-700 px-6 py-3.5 text-sm font-semibold text-white hover:bg-neutral-700 transition-colors"
+                >
+                  Hair Care Collection
+                </Link>
+              </div>
+            </div>
+
+            {/* Emblem Hero Visual */}
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 shrink-0 flex items-center justify-center">
+              <div className="absolute inset-0 bg-amber-500/10 blur-3xl rounded-full"></div>
+              <div className="relative w-full h-full drop-shadow-2xl hover:scale-105 transition-transform duration-300">
+                <Image
+                  src="/jackson-logo.png"
+                  alt="Jackson Beauty Club Emblem"
+                  fill
+                  sizes="(max-width: 640px) 256px, 320px"
+                  className="object-contain"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
